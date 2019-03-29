@@ -1,7 +1,7 @@
 import { preimageSha256 } from '../../utils/crypto-conditions'
 import { Options } from 'yargs'
 import { api, getXrpAddressAndSecret, signSubmitVerify, timeFromNowInXrpTime } from '../../utils/xrp'
-import { parseMemo } from '../../utils/memo';
+import { parseMemo } from '../../utils/memo'
 
 export type Params = {
   amount: string
