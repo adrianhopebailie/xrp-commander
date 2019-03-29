@@ -1,0 +1,49 @@
+{
+  "name": "xrp-cli",
+  "version": "1.0.0-beta.1",
+  "description": "CLI tools for the XRP ledger",
+  "main": "./build/index.js",
+  "bin": {
+    "xrp": "./build/index.js"
+  },
+  "files": [
+    "build/**/*.js",
+    "build/**/*.js.map",
+    "build/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "scripts": {
+    "clean": "rm -Rf build ",
+    "build": "tsc",
+    "lint": "tslint --project .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "npm run lint && npm run build",
+    "prepublishOnly": "npm run lint && npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianhopebailie/xrp-cli.git"
+  },
+  "keywords": [
+    "xrp",
+    "escrow"
+  ],
+  "author": "Adrian Hope-Bailie",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/adrianhopebailie/xrp-cli/issues"
+  },
+  "homepage": "https://github.com/adrianhopebailie/xrp-cli#readme",
+  "dependencies": {
+    "@types/inquirer": "^6.0.0",
+    "@types/yargs": "^12.0.10",
+    "inquirer": "^6.2.2",
+    "ripple-lib": "^1.2.1",
+    "typescript": "^3.3.4000",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "tslint": "^5.14.0",
+    "tslint-config-standard": "^8.0.1"
+  }
+}
