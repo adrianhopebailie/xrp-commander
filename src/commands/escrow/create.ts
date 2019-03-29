@@ -1,6 +1,7 @@
 import { preimageSha256 } from '../../utils/crypto-conditions'
 import { Options } from 'yargs'
 import { api, getXrpAddressAndSecret, signSubmitVerify, timeFromNowInXrpTime } from '../../utils/xrp'
+import { parseMemo } from '../../utils/memo';
 
 export type Params = {
   amount: string
@@ -46,11 +47,7 @@ export async function handler ({ amount, destination, password, allowCancelAfter
   console.log(`Creating condition from password: ${password}`)
   const condition = preimageSha256(password).condition.toString('hex').toUpperCase()
   console.log(`Crypto-condition: ${condition}`)
-  const memos = (memo) ? [{
-    type: 'text/html',
-    data: Buffer.from(memo, 'utf8').toString('hex')
-  }] : []
-
+  const memos = parseMemo(memo)
   const prepared = await (await api()).prepareEscrowCreation(address, {
     amount: amount.toString(),
     destination,
