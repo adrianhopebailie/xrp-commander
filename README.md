@@ -1,4 +1,4 @@
-# XRP CLI
+# XRP Commander
 
 A command-line tool for doing XRP stuff
 
@@ -9,7 +9,7 @@ The goal is to add commands over time as needed and have a consistent user exper
 ## Install
 
 ```
-npm install -g xrp-cli
+npm install -g xrp-commander
 ```
 
 ## Run
