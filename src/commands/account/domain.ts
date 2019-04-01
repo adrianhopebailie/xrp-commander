@@ -1,5 +1,5 @@
 import { Options } from 'yargs'
-import { AccountSet } from './account-set-transaction';
+import * as accountSet from './account-set-transaction';
 
 export type Params = {
   domain?: string
@@ -16,12 +16,16 @@ export const builder: { [key: string]: Options } = {
 
 export async function handler ({ domain }: Params) {
 
-  let result = await AccountSet({domain: domain ? domain : ''});
+  let result = await accountSet.execute({domain: domain ? domain : ''});
 
   console.log(JSON.stringify(result, null, 2))
   
   if (result.outcome.result === 'tesSUCCESS') {
-    console.log('Domain set to: ' + domain)
+    if(domain)
+      console.log('\nDomain set to: ' + domain)
+    else
+      console.log('\nDomain deleted');
+      
     process.exit(0)
   }
   process.exit(1)
