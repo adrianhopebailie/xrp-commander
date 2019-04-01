@@ -47,6 +47,12 @@ xrp escrow <create|release>
 xrp tx <find>
 ```
 
+### Account Settings
+
+```
+xrp account <domain|emailHash>
+```
+
 ## Contributing
 
 This lib has been intentionally designed for easy contribution. To add a command simply submit a PR that adds a new file in the `./src/commands/` folder.
